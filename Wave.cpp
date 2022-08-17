@@ -50,6 +50,12 @@ uint16_t Wave::Char2ToUint16LittleEndian(char data[2])
 Wave::Wave(const std::string& path)
 {
     std::ifstream file(path, std::ios::binary);
+    if (!file)
+    {
+        std::cout << "Filed to load " + path << std::endl;
+        std::exit(-1);
+    }
+
     char info[5] = {};
 
     file.read(info, 4); // RIFF
