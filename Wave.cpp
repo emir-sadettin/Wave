@@ -15,23 +15,14 @@ Wave::BinaryInfo Wave::GetInfo(char data[4])
     return { d0, d1, d2, d3 };
 }
 
-uint32_t Wave::Char4ToUint32BigEndian(char data[4])
-{
-    BinaryInfo info = GetInfo(data);
-
-    std::bitset<32> result(info.d0 + info.d1 + info.d2 + info.d3);
-    return (uint32_t) result.to_ulong();
-}
-
 uint32_t Wave::Char4ToUint32LittleEndian(char data[4])
 {
     BinaryInfo info = GetInfo(data);
-
     std::bitset<32> result(info.d3 + info.d2 + info.d1 + info.d0);
     return (uint32_t) result.to_ulong();
 }
 
-uint16_t Wave::Char2ToUint16BigEndian(char data[2])
+uint16_t Wave::Char2ToUint16LittleEndian(char data[2])
 {
     BinaryInfo info = GetInfo(data);
 
@@ -39,16 +30,14 @@ uint16_t Wave::Char2ToUint16BigEndian(char data[2])
     return (uint16_t) result.to_ulong();
 }
 
-uint16_t Wave::Char2ToUint16LittleEndian(char data[2])
-{
-    BinaryInfo info = GetInfo(data);
-
-    std::bitset<16> result(info.d0 + info.d1);
-    return (uint16_t) result.to_ulong();
-}
-
 Wave::Wave(const std::string& path)
 {
+    if (path.substr(path.size() - 3) != "wav")
+    {
+        std::cout << "Invalid file format." << std::endl;
+        std::exit(-1);
+    }
+
     std::ifstream file(path, std::ios::binary);
     if (!file)
     {
@@ -67,7 +56,7 @@ Wave::Wave(const std::string& path)
     file.read(info, 2); // Audio format
     file.read(info, 2); // Channels
 
-    numChannels = Char2ToUint16BigEndian(info);
+    numChannels = Char2ToUint16LittleEndian(info);
 
     file.read(info, 4); // Sample rate
 
@@ -77,7 +66,7 @@ Wave::Wave(const std::string& path)
     file.read(info, 2); // Block align
     file.read(info, 2); // Bits per sample
 
-    bitsPerSample = Char2ToUint16BigEndian(info);
+    bitsPerSample = Char2ToUint16LittleEndian(info);
 
     file.read(info, 4); // Subchunk 2 ID (Not necessarily the 'data' chunk)
     std::string chunkName = info;

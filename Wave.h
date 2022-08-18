@@ -13,10 +13,8 @@ class Wave
 
 	BinaryInfo GetInfo(char data[4]);
 private:
-	uint32_t Char4ToUint32BigEndian(char data[4]);
 	uint32_t Char4ToUint32LittleEndian(char data[4]);
 
-	uint16_t Char2ToUint16BigEndian(char data[2]);
 	uint16_t Char2ToUint16LittleEndian(char data[2]);
 
 private:
