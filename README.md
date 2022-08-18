@@ -16,7 +16,8 @@ in case you need them.
 
 ## Notes
 
-I made this loader for one main reason. In my experience, certain `.wav` files do not follow the **Canonical** format provided below:
+I made this loader for one main reason. In my experience, certain `.wav` files do not follow the **Canonical** format provided below
+which most (if not all) `.wav` readers tend to reference:
 
 ![alt text](https://e2e.ti.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-07-62/Canonical-WAVE-file-format.jpg)
 
