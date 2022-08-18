@@ -18,7 +18,7 @@ in case you need them.
 
 I made this loader for one main reason. In my experience, certain `.wav` files do not follow the **Canonical** format provided below:
 
-![alt text](https://i.stack.imgur.com/ITplE.gif)
+![alt text](https://e2e.ti.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-07-62/Canonical-WAVE-file-format.jpg)
 
 Sometimes, there are extra subchunks between the *fmt* and *data* headers, often the *LIST* subchunks as
 pointed out here: https://stackoverflow.com/questions/63929283/what-is-a-list-chunk-in-a-riff-wav-header
