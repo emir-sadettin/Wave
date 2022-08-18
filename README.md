@@ -9,7 +9,7 @@ Example:
 ```
 Wave wave("foo/bar/baz.wav");
 ...
-alBufferData(buffer, AL_FORMAT_STEREO16, asc.GetData(), asc.GetDataSize(), asc.GetSampleRate());
+alBufferData(buffer, AL_FORMAT_STEREO16, wave.GetData(), wave.GetDataSize(), wave.GetSampleRate());
 ```
 Please note that there are extra methods provided in the `Wave` class to get the number of channels and the *bits per sample*
 in case you need them.
