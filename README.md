@@ -26,4 +26,4 @@ pointed out here: https://stackoverflow.com/questions/63929283/what-is-a-list-ch
 Many of the `.wav` readers I have tried do not take care of this information, and it took me a while to figure out why
 my program was not working as expected.
 
-I hope this is as helpful to you as it was to me.
+I hope this is as helpful to you as it was to me. Please let me know if there are any problems by opening up an issue.
